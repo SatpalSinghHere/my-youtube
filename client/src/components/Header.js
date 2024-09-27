@@ -18,7 +18,7 @@ const Header = () => {
 
     const fetchQueries = async (query) => {
         console.log('fetching')
-        const res = await fetch("http://localhost:5000/youtube-suggestions?q=" + query)
+        const res = await fetch("https://satpals-youtube-search-api.onrender.com/" + query)
 
         return new Promise((resolve, reject) => {
             // Define the global callback function

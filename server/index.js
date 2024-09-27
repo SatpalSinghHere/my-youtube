@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express');
 const app=express();
 const axios = require('axios');
@@ -7,7 +9,7 @@ app.get('/:query', (req, res) => {
     axios.get(`https://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=${query}`)
     .then(response => {
         console.log(response.data)
-        res.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+        res.header('Access-Control-Allow-Origin', process.env.CLIENT_DOMAIN)
         res.send(response.data);
     })
 })
