@@ -32,7 +32,7 @@ const Header = () => {
 
             // Create a new script tag to load the data
             const script = document.createElement('script');
-            script.src = "http://localhost:5000/youtube-suggestions?q=" + query; // Replace with the actual URL
+            script.src = "https://satpals-youtube-search-api.onrender.com/" + query; // Replace with the actual URL
             script.onerror = reject; // Handle errors
 
             // Append the script to the body
