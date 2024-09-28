@@ -10,6 +10,8 @@ const SearchResultsContainer = () => {
     const params = useParams();
 
     const fetchResults = async (query) => {
+        console.log("fetching search results")
+        setVideoIdList([])
         const data = await fetch(SEARCH_API + "q=" + query + "&maxResults=10");
         const jsonData = await data.json();
         const videoIds = jsonData.items.map((item) => item.id.videoId);

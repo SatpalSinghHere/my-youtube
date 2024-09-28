@@ -14,6 +14,7 @@ const WatchPage = () => {
 
     const [videoDetails, setVideoDetails] = useState({});
     const [videoList, setVideoList] = useState([]);
+    const [channelId, setChannelId] = useState("");
 
     const fetchVideoList = async () => {
         const data = await fetch(VIDEO_LIST_API+"10");
@@ -25,7 +26,7 @@ const WatchPage = () => {
     const fetchVideoDetails = async () => {
         const data = await fetch(VIDEO_DETAILS_API + videoId);
         const jsonData = await data.json();
-        // console.log(jsonData);
+        console.log(jsonData);
         setVideoDetails(jsonData.items[0]);
         let desc = jsonData.items[0].snippet.description;
 
@@ -56,7 +57,7 @@ const WatchPage = () => {
                             <img src="" alt="" />
                         </div>
                         <div className='ml-1'>
-                            <div className='text-[0.75rem]'>Channel Name</div>
+                            <div className='text-[0.75rem]'>{videoDetails.snippet?.channelTitle}</div>
                             <div className='text-[0.6rem]'>0 Subscribers</div>
                         </div>
                         <button className='shadow-md rounded-full px-2 text-[0.75rem] ml-2 h-[80%] text-justify hover:bg-slate-200'>Subscribe</button>

@@ -10,17 +10,12 @@ const VideoCard = ({ data, channelId }) => {
     fetch(CHANNEL_LOGO_API + channelId)
       .then(res => res.json())
       .then(data => {
-        console.log(data.items[0].brandingSettings?.image)
+        console.log(data)
         const obj = data.items[0].brandingSettings?.image
         if(obj !== undefined){
           setChannelBannerSrc(obj.bannerExternalUrl)
         }
-        // if(data !== undefined){
-        // const object = data.items[0].brandingSettings?.image;
-
-        //   console.log(data.items[0].brandingSettings?.image.bannerExternalUrl);
-        //   // setChannelBannerSrc(data.items[0].brandingSettings?.image.bannerExternalUrl)
-        // }
+        
       })
   }
 
@@ -34,8 +29,8 @@ const VideoCard = ({ data, channelId }) => {
   }
 
   let channelTitle = data.snippet.channelTitle;
-  if (channelTitle.length > 13) {
-    channelTitle = channelTitle.slice(0, 13) + '...';
+  if (channelTitle.length > 20) {
+    channelTitle = channelTitle.slice(0, 18) + '...';
   }
 
   return (
@@ -50,7 +45,7 @@ const VideoCard = ({ data, channelId }) => {
 
         <div className='text-xs font-semibold'>{title}</div>
         <hr />
-        <div className='text-xs flex h-2/5'>
+        <div className='text-xs flex h-2/5 items-center'>
           <img className='h-8 w-8 rounded-full' src={channelBannerSrc} alt="LOGO" />
           {channelTitle}
         </div>

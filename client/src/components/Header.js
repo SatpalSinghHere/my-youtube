@@ -43,6 +43,7 @@ const Header = () => {
     const navigate=useNavigate();
     function Search(query) {
         console.log(query);
+        
         if(query !== '') navigate(`/searchresults/${query}`);
     }
 

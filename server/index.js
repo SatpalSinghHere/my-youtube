@@ -5,7 +5,7 @@ const app=express();
 const axios = require('axios');
 
 app.get('/:query', (req, res) => {
-    const query = req.query.q;
+    const query = req.query.query;
     axios.get(`https://suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=${query}`)
     .then(response => {
         console.log(response.data)
